@@ -11,5 +11,6 @@
       Sys.setenv(HEADLESS_CHROME="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome")
     }
     # check other os
+    chrome_bin <- Sys.getenv("HEADLESS_CHROME")
   }
 }
