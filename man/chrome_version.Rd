@@ -9,3 +9,6 @@ chrome_version(x)
 \description{
 Get Chrome version
 }
+\examples{
+chrome_version()
+}
