@@ -13,7 +13,7 @@ Description: The 'Chrome' browser <https://www.google.com/chrome/> has a headles
 URL: https://github.com/hrbrmstr/decapitated
 BugReports: https://github.com/hrbrmstr/decapitated/issues
 License: AGPL
-SystemRequirements: Chrome 59+
+SystemRequirements: Chrome 59+ on macOS/Linux, 60+ on Windows
 Suggests:
     testthat,
     covr
