@@ -11,8 +11,8 @@
 #' This pkg will eventually do much under the covers to find the location of the Chrome binary
 #' on all operating systems. For now, you'll need to set an envrionment variable `HEADLESS_CHROME` to one of these two values:
 #'
-#' - Windows: `C:\Program Files\Google\Chrome\Application\chrome.exe`
-#' - macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
+#' - Windows: `C:\\Program Files\\Google\\ Chrome\\Application\\chrome.exe`
+#' - macOS: `/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome`
 #'
 #' Linux folks will know where their binary is (many of you use non-default locations for things).
 #'

@@ -4,8 +4,11 @@
 \alias{chrome_version}
 \title{Get Chrome version}
 \usage{
-chrome_version(x)
+chrome_version()
 }
 \description{
 Get Chrome version
+}
+\examples{
+chrome_version()
 }

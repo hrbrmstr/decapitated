@@ -5,6 +5,7 @@ Version: 0.1.0
 Date: 2017-05-02
 Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
+Contributor: Chanyub Park <mrchypark@gmail.com>
 Description: The 'Chrome' browser <https://www.google.com/chrome/> has a headless mode
     which can be instrumented programmatically. Tools are provided to perform headless
     'Chrome' instrumentation on the command-line and will eventually provide support
