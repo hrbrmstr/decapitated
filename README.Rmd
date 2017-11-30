@@ -2,7 +2,11 @@
 output: rmarkdown::github_document
 ---
 
-`decapitated` : Headless 'Chrome' Orchestration
+# decapitated
+
+Headless 'Chrome' Orchestration
+
+## Description
 
 The 'Chrome' browser <https://www.google.com/chrome/> has a headless mode
 which can be instrumented programmatically. Tools are provided to perform headless
@@ -12,16 +16,21 @@ for the 'DevTools' instrumentation 'API' or the forthcoming 'phantomjs'-like hig
 
 ### IMPORTANT
 
+macOS High Sierra and Headless Chrome dinna work so good together.
+
 This pkg will eventually do much under the covers to find the location of the Chrome binary
 on all operating systems. For now, you'll need to set an envrionment variable `HEADLESS_CHROME` to one of these values:
 
 - Windows(32bit): `C:/Program Files/Google/Chrome/Application/chrome.exe`
 - Windows(64bit): `C:/Program Files (x86)/Google/Chrome/Application/chrome.exe`
 - macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
+- Linux: `/usr/bin/google-chrome`
 
-Linux folks will know where their binary is (many of you use non-default locations for things).
+A guess is made (but not verified yet) if `HEADLESS_CHROME` is non-existent.
 
 Use `~/.Renviron` to store this value for the time being.
+
+## What's in the tin?
 
 The following functions are implemented:
 
@@ -29,8 +38,10 @@ The following functions are implemented:
 - `chrome_read_html`:	Read a URL via headless Chrome and return the renderd '<body>' 'innerHTML' DOM elements
 - `chrome_shot`:	Capture a screenshot
 - `chrome_version`:	Get Chrome version
+- `get_chrome_env`:	get an envrionment variable 'HEADLESS_CHROME'
+- `set_chrome_env`:	set an envrionment variable 'HEADLESS_CHROME'
 
-### Installation
+## Installation
 
 ```{r eval=FALSE}
 devtools::install_github("hrbrmstr/decapitated")
@@ -40,7 +51,7 @@ devtools::install_github("hrbrmstr/decapitated")
 options(width=120)
 ```
 
-### Usage
+## Usage
 
 ```{r message=FALSE, warning=FALSE, error=FALSE}
 library(decapitated)
@@ -67,15 +78,4 @@ chrome_shot("http://httpbin.org/")
 ```
 
 ![screenshot.png](screenshot.png)
-
-### Test Results
-
-```{r message=FALSE, warning=FALSE, error=FALSE}
-library(decapitated)
-library(testthat)
-
-date()
-
-test_dir("tests/")
-```
 

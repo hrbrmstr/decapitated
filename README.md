@@ -1,16 +1,24 @@
 
-`decapitated` : Headless 'Chrome' Orchestration
+# decapitated
+
+Headless 'Chrome' Orchestration
+
+## Description
 
 The 'Chrome' browser <https://www.google.com/chrome/> has a headless mode which can be instrumented programmatically. Tools are provided to perform headless 'Chrome' instrumentation on the command-line and will eventually provide support for the 'DevTools' instrumentation 'API' or the forthcoming 'phantomjs'-like higher-level 'API' being promised by the development team.
 
-### IMPORTANT
+## IMPORTANT
+
+macOS High Sierra and Headless Chrome dinna work so good together.
 
 This pkg will eventually do much under the covers to find the location of the Chrome binary on all operating systems. For now, you'll need to set an envrionment variable `HEADLESS_CHROME` to one of these two values:
 
--   Windows: `C:\Program Files\Google\Chrome\Application\chrome.exe`
--   macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
+- Windows(32bit): `C:/Program Files/Google/Chrome/Application/chrome.exe`
+- Windows(64bit): `C:/Program Files (x86)/Google/Chrome/Application/chrome.exe`
+- macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
+- Linux: `/usr/bin/google-chrome`
 
-Linux folks will know where their binary is (many of you use non-default locations for things).
+A guess is made (but not verified yet) if `HEADLESS_CHROME` is non-existent.
 
 Use `~/.Renviron` to store this value for the time being.
 
@@ -22,14 +30,16 @@ The following functions are implemented:
     ' 'innerHTML' DOM elements
 -   `chrome_shot`: Capture a screenshot
 -   `chrome_version`: Get Chrome version
+-   `get_chrome_env`:	get an envrionment variable 'HEADLESS_CHROME'
+-   `set_chrome_env`:	set an envrionment variable 'HEADLESS_CHROME'
 
-### Installation
+## Installation
 
 ``` r
 devtools::install_github("hrbrmstr/decapitated")
 ```
 
-### Usage
+## Usage
 
 ``` r
 library(decapitated)
@@ -38,7 +48,7 @@ library(decapitated)
 packageVersion("decapitated")
 ```
 
-    ## [1] '0.1.0'
+    ## [1] '0.2.0'
 
 ``` r
 chrome_version()
@@ -65,22 +75,3 @@ chrome_shot("http://httpbin.org/")
 
 ![](screenshot.png)
 
-### Test Results
-
-``` r
-library(decapitated)
-library(testthat)
-
-date()
-```
-
-    ## [1] "Tue May  2 09:45:23 2017"
-
-``` r
-test_dir("tests/")
-```
-
-    ## testthat results ========================================================================================================
-    ## OK: 0 SKIPPED: 0 FAILED: 0
-    ## 
-    ## DONE ===================================================================================================================
