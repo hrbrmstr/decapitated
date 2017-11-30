@@ -4,7 +4,10 @@
 \alias{chrome_version}
 \title{Get Chrome version}
 \usage{
-chrome_version()
+chrome_version(chrome_bin = Sys.getenv("HEADLESS_CHROME"))
+}
+\arguments{
+\item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
 \description{
 Get Chrome version

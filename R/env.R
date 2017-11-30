@@ -5,7 +5,7 @@
 #' @export
 #' @examples
 #' get_env()
-get_env <- function() {
+get_chrome_env <- function() {
   Sys.getenv("HEADLESS_CHROME")
 }
 
@@ -17,6 +17,6 @@ get_env <- function() {
 #' @export
 #' @examples
 #' set_env("C:/Program Files/Google/Chrome/Application/chrome.exe")
-set_env <- function(env=Sys.getenv("HEADLESS_CHROME")) {
+set_chrome_env <- function(env=Sys.getenv("HEADLESS_CHROME")) {
   Sys.setenv(HEADLESS_CHROME=env)
 }

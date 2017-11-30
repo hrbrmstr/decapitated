@@ -4,12 +4,15 @@
 \alias{chrome_shot}
 \title{Capture a screenshot}
 \usage{
-chrome_shot(url, width = NULL, height = NULL)
+chrome_shot(url, width = NULL, height = NULL,
+  chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
 \item{url}{URL to read from}
 
 \item{width, height}{screen size to emulate}
+
+\item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
 \value{
 \code{magick}

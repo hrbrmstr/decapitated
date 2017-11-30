@@ -4,10 +4,12 @@
 \alias{chrome_read_html}
 \title{Read a URL via headless Chrome and return the renderd \code{<body>} \code{innerHTML} DOM elements}
 \usage{
-chrome_read_html(url)
+chrome_read_html(url, chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
 \item{url}{URL to read from}
+
+\item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
 \description{
 Read a URL via headless Chrome and return the renderd \code{<body>} \code{innerHTML} DOM elements

@@ -4,10 +4,12 @@
 \alias{chrome_dump_pdf}
 \title{"Print" to PDF}
 \usage{
-chrome_dump_pdf(url)
+chrome_dump_pdf(url, chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
 \item{url}{URL to read from}
+
+\item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
 \description{
 "Print" to PDF
