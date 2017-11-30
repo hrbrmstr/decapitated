@@ -18,6 +18,10 @@
         Sys.setenv(HEADLESS_CHROME="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome")
       }
 
+      if (unname(Sys.info()["sysname"] == "Lniux")) {
+        Sys.setenv(HEADLESS_CHROME="/usr/bin/google-chrome")
+      }
+
       message(sprintf("Set Chrome binary to [%s].\nPass in manually to functions or use decapitated::set_chrome_env()",
                       Sys.getenv("HEADLESS_CHROME")))
 

@@ -10,8 +10,7 @@
 chrome_read_html <- function(url, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
   url <- shQuote(url)
   tmp <- system2(chrome_bin, c("--headless", "--disable-gpu", "--dump-dom", url), stdout=TRUE)
-  print(tmp)
-  xml2::read_html(tmp)
+  xml2::read_html(paste0(tmp, collapse="\n"))
 }
 
 #' "Print" to PDF
