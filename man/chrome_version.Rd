@@ -4,10 +4,15 @@
 \alias{chrome_version}
 \title{Get Chrome version}
 \usage{
-chrome_version(chrome_bin = Sys.getenv("HEADLESS_CHROME"))
+chrome_version(quiet = FALSE, chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
+\item{quiet}{if \code{TRUE}, no messages are displayed}
+
 \item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
+}
+\value{
+the Chrome version string (invisibly)
 }
 \description{
 Get Chrome version

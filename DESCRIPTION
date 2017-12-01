@@ -1,19 +1,20 @@
 Package: decapitated
 Type: Package
 Title: Headless 'Chrome' Orchestration
-Version: 0.1.0
-Date: 2017-05-02
-Author: Bob Rudis (bob@rud.is)
+Version: 0.2.0
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Chanyub", "Park", email="mrchypark@gmail.com", role=c("ctb"))
+    )
 Maintainer: Bob Rudis <bob@rud.is>
-Contributor: Chanyub Park <mrchypark@gmail.com>
 Description: The 'Chrome' browser <https://www.google.com/chrome/> has a headless mode
     which can be instrumented programmatically. Tools are provided to perform headless
-    'Chrome' instrumentation on the command-line and will eventually provide support
-    for the 'DevTools' instrumentation 'API' or the forthcoming 'phantomjs'-like higher-level
-    'API' being promised by the development team.
+    'Chrome' instrumentation, including retrieving the 
+    'javascript'-executed 'DOM' contents, 'PDF' output for, or screen shot of a 'URL'.
 URL: https://github.com/hrbrmstr/decapitated
 BugReports: https://github.com/hrbrmstr/decapitated/issues
-License: AGPL
+License: MIT + file LICENSE
 SystemRequirements: Chrome 59+ on macOS/Linux, 60+ on Windows
 Suggests:
     testthat,

@@ -8,6 +8,10 @@
 #'        placed in the current working directory by incrementing trailing numbers before
 #'        the end of it.
 #' @param overwrite overwrite existing file? Default: `TRUE`
+#' @param prime if `TRUE` preliminary URL retrieval requests will be sent to "prime" the
+#'        headless Chrome cache. This seems to be necessary primarily on recent versions of macOS.
+#'        If numeric, that number of "prime" requests will be sent ahead of the capture request.
+#'        If `FALSE` no priming requests will be sent.
 #' @param chrome_bin the path to Chrome (auto-set from `HEADLESS_CHROME` environment variable)
 #' @return output fileame (invisibly)
 #' @export
@@ -18,9 +22,9 @@ chrome_dump_pdf <- function(url, path=NULL, overwrite=TRUE, chrome_bin=Sys.geten
   curwd <- getwd()
   on.exit(setwd(curwd), add = TRUE)
 
-  if (is.null(path)) path <- "."
+  path <- if (is.null(path)) "." else path[1]
 
-  path <- normalizePath(path.expand(path[1]))
+  path <- suppressWarnings(normalizePath(path.expand(path)))
 
   if (!grepl("\\.pdf$", path)) {
     fil_nam <- "output.pdf"
@@ -45,6 +49,11 @@ chrome_dump_pdf <- function(url, path=NULL, overwrite=TRUE, chrome_bin=Sys.geten
   args <- c(args, sprintf("--crash-dumps-dir=%s", .get_app_dir()))
   args <- c(args, sprintf("--utility-allowed-dir=%s", .get_app_dir()))
   args <- c(args, "--print-to-pdf", url)
+
+  vers <- chrome_version(quiet=TRUE)
+
+  if (is.logical(prime) & prime) .prime_url(url, 1, chrome_bin)
+  if (is.numeric(prime) & (prime>0)) .prime_url(url, prime, chrome_bin)
 
   processx::run(
     command = chrome_bin,

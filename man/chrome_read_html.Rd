@@ -4,13 +4,18 @@
 \alias{chrome_read_html}
 \title{Read a URL via headless Chrome and return the raw or rendered \code{<body>} \code{innerHTML} DOM elements}
 \usage{
-chrome_read_html(url, render = TRUE,
+chrome_read_html(url, render = TRUE, prime = TRUE,
   chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
 \item{url}{URL to read from}
 
 \item{render}{if \code{TRUE} then return an \code{xml_document}, else the raw HTML (invisibly)}
+
+\item{prime}{if \code{TRUE} preliminary URL retrieval requests will be sent to "prime" the
+headless Chrome cache. This seems to be necessary primarily on recent versions of macOS.
+If numeric, that number of "prime" requests will be sent ahead of the capture request.
+If \code{FALSE} no priming requests will be sent.}
 
 \item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
