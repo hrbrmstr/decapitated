@@ -9,7 +9,7 @@
 #' chrome_read_html("https://www.r-project.org/")
 chrome_read_html <- function(url, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
   url <- shQuote(url)
-  tmp <- system2(chrome_bin, c("--headless", "--disable-gpu", "--dump-dom", url), stdout=TRUE)
+  tmp <- system2(chrome_bin, c("--headless", "--no-sandbox", "--disable-gpu", "--dump-dom", url), stdout=TRUE)
   xml2::read_html(paste0(tmp, collapse="\n"))
 }
 
@@ -24,7 +24,7 @@ chrome_read_html <- function(url, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 #' chrome_dump_pdf("https://www.r-project.org/")
 chrome_dump_pdf <- function(url, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
   url <- shQuote(url)
-  tmp <- system2(chrome_bin, c("--headless", "--disable-gpu", "--print-to-pdf", url))
+  tmp <- system2(chrome_bin, c("--headless", "--no-sandbox", "--disable-gpu", "--print-to-pdf", url))
 }
 
 #' Capture a screenshot
@@ -45,7 +45,7 @@ chrome_dump_pdf <- function(url, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 #' chrome_shot("https://www.r-project.org/logo/Rlogo.svg")
 chrome_shot <- function(url, width=NULL, height=NULL, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 
-  args <- c("--headless", "--disable-gpu", "--screenshot")
+  args <- c("--headless", "--no-sandbox", "--disable-gpu", "--screenshot")
 
   url <- shQuote(url)
 
