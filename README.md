@@ -51,7 +51,7 @@ security restrictions or headless Chrome will not function.
 The three core functions have a `prime` parameter. In testing (again,
 especially on macOS), I noticed that the first one or two requests to a
 URL often resulted in an empty `<body>` response. I don’t use Chrome as
-my primary browser anymroe so I’m not sure if that has somethign to do
+my primary browser anymore so I’m not sure if that has something to do
 with it, but requests after the first one or two do return content. The
 `prime` parameter lets you specify `TRUE`, `FALSE` or a numeric value
 that will issue the URL retrieval multiple times before returning a
