@@ -4,7 +4,7 @@
 \alias{chrome_read_html}
 \title{Read a URL via headless Chrome and return the raw or rendered \code{<body>} \code{innerHTML} DOM elements}
 \usage{
-chrome_read_html(url, render = TRUE, prime = TRUE,
+chrome_read_html(url, render = TRUE, prime = TRUE, work_dir = NULL,
   chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
@@ -17,6 +17,8 @@ headless Chrome cache. This seems to be necessary primarily on recent versions o
 If numeric, that number of "prime" requests will be sent ahead of the capture request.
 If \code{FALSE} no priming requests will be sent.}
 
+\item{work_dir}{See special Section.}
+
 \item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 }
 \description{
@@ -25,6 +27,23 @@ Read a URL via headless Chrome and return the raw or rendered \code{<body>} \cod
 \note{
 This only grabs the \code{<body>} \code{innerHTML} contents
 }
+\section{Working around headless Chrome & OS security restrictions}{
+
+Security restrictions on various operating systems and OS configurations can cause
+headless Chrome execution to fail. As a result, headless Chrome operations should
+use a special directory for \code{decapitated} package operations. You can pass this
+in as \code{work_dir}. If \code{work_dir} is \code{NULL} a \code{.rdecapdata} directory will be
+created in your home directory and used for the data, crash dumps and utility
+directories for Chrome operations.\cr
+\cr
+\code{tempdir()} does not always meet these requirements (after testing on various
+macOS 10.13 systems) as Chrome does some interesting attribute setting for
+some of its file operations.
+\cr
+If you pass in a \code{work_dir}, it must be one that does not violate OS security
+restrictions or headless Chrome will not function.
+}
+
 \examples{
 chrome_read_html("https://www.r-project.org/")
 }

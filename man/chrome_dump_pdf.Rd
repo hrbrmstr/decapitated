@@ -4,7 +4,7 @@
 \alias{chrome_dump_pdf}
 \title{"Print" to PDF}
 \usage{
-chrome_dump_pdf(url, path = NULL, overwrite = TRUE,
+chrome_dump_pdf(url, path = NULL, overwrite = TRUE, work_dir = NULL,
   chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
@@ -16,6 +16,8 @@ placed in the current working directory by incrementing trailing numbers before
 the end of it.}
 
 \item{overwrite}{overwrite existing file? Default: \code{TRUE}}
+
+\item{work_dir}{See special Section.}
 
 \item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
 
@@ -33,6 +35,23 @@ output fileame (invisibly)
 \note{
 The default Chrome filename is \code{output.pdf}
 }
+\section{Working around headless Chrome & OS security restrictions}{
+
+Security restrictions on various operating systems and OS configurations can cause
+headless Chrome execution to fail. As a result, headless Chrome operations should
+use a special directory for \code{decapitated} package operations. You can pass this
+in as \code{work_dir}. If \code{work_dir} is \code{NULL} a \code{.rdecapdata} directory will be
+created in your home directory and used for the data, crash dumps and utility
+directories for Chrome operations.\cr
+\cr
+\code{tempdir()} does not always meet these requirements (after testing on various
+macOS 10.13 systems) as Chrome does some interesting attribute setting for
+some of its file operations.
+\cr
+If you pass in a \code{work_dir}, it must be one that does not violate OS security
+restrictions or headless Chrome will not function.
+}
+
 \examples{
 chrome_dump_pdf("https://www.r-project.org/")
 }
