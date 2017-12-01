@@ -22,5 +22,8 @@ Depends:
     R (>= 3.2.0)
 Imports:
     xml2,
-    magick
+    magick,
+    processx,
+    tools,
+    utils
 RoxygenNote: 6.0.1
