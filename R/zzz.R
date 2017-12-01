@@ -22,8 +22,12 @@
         Sys.setenv(HEADLESS_CHROME="/usr/bin/google-chrome")
       }
 
-      message(sprintf("Set Chrome binary to [%s].\nPass in manually to functions or use decapitated::set_chrome_env()",
-                      Sys.getenv("HEADLESS_CHROME")))
+      packageStartupMessage(
+        sprintf(
+          "Set Chrome binary to [%s].
+To override, pass in manually to functions or use decapitated::set_chrome_env()",
+          Sys.getenv("HEADLESS_CHROME"))
+      )
 
     }
 
