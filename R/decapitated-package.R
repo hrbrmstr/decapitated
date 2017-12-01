@@ -31,7 +31,7 @@
 #'
 #' A guess is made (but not verified yet) if `HEADLESS_CHROME` is non-existent.
 #'
-#' Use `~/.Renviron` to store this value for the time being.
+#' It's best to use `~/.Renviron` to store this value.
 #'
 #' @md
 #' @name decapitated

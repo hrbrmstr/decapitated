@@ -41,7 +41,7 @@ You'll need to set an envrionment variable \code{HEADLESS_CHROME} to one of thes
 
 A guess is made (but not verified yet) if \code{HEADLESS_CHROME} is non-existent.
 
-Use \code{~/.Renviron} to store this value for the time being.
+It's best to use \code{~/.Renviron} to store this value.
 }
 
 \author{

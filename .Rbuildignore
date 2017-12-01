@@ -8,3 +8,5 @@
 ^\.codecov\.yml$
 ^README_files$
 ^doc$
+^screenshot\.png$
+^output\.pdf$
