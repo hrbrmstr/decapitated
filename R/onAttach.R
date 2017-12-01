@@ -18,7 +18,7 @@
         Sys.setenv(HEADLESS_CHROME="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome")
       }
 
-      if (unname(Sys.info()["sysname"] == "Lniux")) {
+      if (unname(Sys.info()["sysname"] == "Linux")) {
         Sys.setenv(HEADLESS_CHROME="/usr/bin/google-chrome")
       }
 
