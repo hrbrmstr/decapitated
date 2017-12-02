@@ -36,8 +36,8 @@
 #' @export
 #' @examples
 #' chrome_shot("https://www.r-project.org/logo/Rlogo.svg")
-chrome_shot <- function(url, width=NULL, height=NULL, path=NULL, work_dir = NULL,
-                             chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
+chrome_shot <- function(url, width=NULL, height=NULL, path=NULL, prime=TRUE,
+                        work_dir = NULL, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 
   curwd <- getwd()
   on.exit(setwd(curwd), add = TRUE)

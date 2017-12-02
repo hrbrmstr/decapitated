@@ -33,8 +33,8 @@
 #' @export
 #' @examples
 #' chrome_dump_pdf("https://www.r-project.org/")
-chrome_dump_pdf <- function(url, path=NULL, overwrite=TRUE, work_dir = NULL,
-                             chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
+chrome_dump_pdf <- function(url, path=NULL, overwrite=TRUE, prime=TRUE,
+                            work_dir = NULL, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 
   curwd <- getwd()
   on.exit(setwd(curwd), add = TRUE)
