@@ -4,8 +4,9 @@
 \alias{chrome_shot}
 \title{Capture a screenshot}
 \usage{
-chrome_shot(url, width = NULL, height = NULL, path = NULL, prime = TRUE,
-  work_dir = NULL, chrome_bin = Sys.getenv("HEADLESS_CHROME"))
+chrome_shot(url, width = NULL, height = NULL, path = NULL,
+  overwrite = TRUE, prime = TRUE, work_dir = NULL,
+  chrome_bin = Sys.getenv("HEADLESS_CHROME"))
 }
 \arguments{
 \item{url}{URL to read from}
@@ -17,6 +18,8 @@ and \code{overwrite} is \code{FALSE}, the fuction will will ensure a uniquely-na
 placed in the current working directory by incrementing trailing numbers before
 the end of it.}
 
+\item{overwrite}{overwrite existing file? Default: \code{TRUE}}
+
 \item{prime}{if \code{TRUE} preliminary URL retrieval requests will be sent to "prime" the
 headless Chrome cache. This seems to be necessary primarily on recent versions of macOS.
 If numeric, that number of "prime" requests will be sent ahead of the capture request.
@@ -25,8 +28,6 @@ If \code{FALSE} no priming requests will be sent.}
 \item{work_dir}{See special Section.}
 
 \item{chrome_bin}{the path to Chrome (auto-set from \code{HEADLESS_CHROME} environment variable)}
-
-\item{overwrite}{overwrite existing file? Default: \code{TRUE}}
 }
 \value{
 \code{magick}

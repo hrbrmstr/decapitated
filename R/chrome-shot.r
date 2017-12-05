@@ -36,7 +36,7 @@
 #' @export
 #' @examples
 #' chrome_shot("https://www.r-project.org/logo/Rlogo.svg")
-chrome_shot <- function(url, width=NULL, height=NULL, path=NULL, prime=TRUE,
+chrome_shot <- function(url, width=NULL, height=NULL, path=NULL, overwrite=TRUE, prime=TRUE,
                         work_dir = NULL, chrome_bin=Sys.getenv("HEADLESS_CHROME")) {
 
   curwd <- getwd()
@@ -46,7 +46,7 @@ chrome_shot <- function(url, width=NULL, height=NULL, path=NULL, prime=TRUE,
 
   path <- suppressWarnings(normalizePath(path.expand(path)))
 
-  if (!grepl("\\.pdf$", path)) {
+  if (!grepl("\\.png$", path)) {
     fil_nam <- "screenshot.png"
     dir_nam <- path
   } else {
