@@ -22,16 +22,23 @@
 #'
 #' @section Important:
 #'
-#' You'll need to set an envrionment variable `HEADLESS_CHROME` to one of these two values:
+#' You'll need to set an envrionment variable `HEADLESS_CHROME` to use this package.
 #'
-#' - Windows(32bit): `C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe`
-#' - Windows(64bit): `C:\\Program Files (x86)/Google\\Chrome\\Application\\chrome.exe`
+#' If this value is not set, a location heuristic is used on package start which looks
+#' for the following depending on the operating system:
+#'
+#' - Windows(32bit): `C:/Program Files/Google/Chrome/Application/chrome.exe`
+#' - Windows(64bit): `C:/Program Files (x86)/Google/Chrome/Application/chrome.exe`
 #' - macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
 #' - Linux: `/usr/bin/google-chrome`
 #'
-#' A guess is made (but not verified yet) if `HEADLESS_CHROME` is non-existent.
+#' If a verification test fails, you will be notified.
+#'
+#' **It is HIGHLY recommended** that you use `decapitated::download_chromium()` to use
+#' a standalone version of Chrome with this packge for your platform.
 #'
 #' It's best to use `~/.Renviron` to store this value.
+#'
 #'
 #' @md
 #' @name decapitated

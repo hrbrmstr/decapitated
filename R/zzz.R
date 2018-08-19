@@ -1,35 +1,44 @@
 .onAttach <- function(libname, pkgname) {
 
+  HEADLESS_CHROME <- Sys.getenv("HEADLESS_CHROME")
+
   if (interactive()) {
 
-    if (Sys.getenv("HEADLESS_CHROME") == "") {
+    if (HEADLESS_CHROME == "") {
 
       if (unname(Sys.info()["sysname"] == "Windows")) {
 
         if (unname(Sys.info()["machine"] == "x86-64")) {
-          Sys.setenv(HEADLESS_CHROME="C:/Program Files (x86)/Google/Chrome/Application/chrome.exe")
+          HEADLESS_CHROME <- "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
         } else {
-          Sys.setenv(HEADLESS_CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe")
+          HEADLESS_CHROME <- "C:/Program Files/Google/Chrome/Application/chrome.exe"
         }
 
       }
 
       if (unname(Sys.info()["sysname"] == "Darwin")) {
-        Sys.setenv(HEADLESS_CHROME="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome")
+        HEADLESS_CHROME <- "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
       }
 
       if (unname(Sys.info()["sysname"] == "Linux")) {
-        Sys.setenv(HEADLESS_CHROME="/usr/bin/google-chrome")
+        HEADLESS_CHROME <- "/usr/bin/google-chrome"
       }
 
-      packageStartupMessage(
-        sprintf(
-          "Set Chrome binary to [%s].
-To override, pass in manually to functions or use decapitated::set_chrome_env()",
-          Sys.getenv("HEADLESS_CHROME"))
-      )
-
     }
+
+    if (file.exists(HEADLESS_CHROME)) {
+      Sys.setenv("HEADLESS_CHROME"=HEADLESS_CHROME)
+      packageStartupMessage(
+        sprintf("Using Chrome binary from [%s].\n", Sys.getenv("HEADLESS_CHROME"))
+      )
+    } else {
+      packageStartupMessage(
+        sprintf("Chrome binary not found at [%s].\n", Sys.getenv("HEADLESS_CHROME")),
+        "Please use decapitated::download_chromium() and set the HEADLESS_CHROME ",
+        "environment variable to the value returned from the function."
+      )
+    }
+
 
   }
 

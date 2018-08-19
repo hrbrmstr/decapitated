@@ -31,15 +31,21 @@ restrictions or headless Chrome will not function.
 \section{Important}{
 
 
-You'll need to set an envrionment variable \code{HEADLESS_CHROME} to one of these two values:
+You'll need to set an envrionment variable \code{HEADLESS_CHROME} to use this package.
+
+If this value is not set, a location heuristic is used on package start which looks
+for the following depending on the operating system:
 \itemize{
-\item Windows(32bit): \code{C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe}
-\item Windows(64bit): \code{C:\\Program Files (x86)/Google\\Chrome\\Application\\chrome.exe}
+\item Windows(32bit): \code{C:/Program Files/Google/Chrome/Application/chrome.exe}
+\item Windows(64bit): \code{C:/Program Files (x86)/Google/Chrome/Application/chrome.exe}
 \item macOS: \code{/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome}
 \item Linux: \code{/usr/bin/google-chrome}
 }
 
-A guess is made (but not verified yet) if \code{HEADLESS_CHROME} is non-existent.
+If a verification test fails, you will be notified.
+
+\strong{It is HIGHLY recommended} that you use \code{decapitated::download_chromium()} to use
+a standalone version of Chrome with this packge for your platform.
 
 It's best to use \code{~/.Renviron} to store this value.
 }

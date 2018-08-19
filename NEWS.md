@@ -1,3 +1,8 @@
+0.3.0
+* Added `download_chromium()` and highly recommend folks use it vs system Chrome
+  binaries.
+* Slightly modified startup code to check for Chrome being present.
+
 0.2.0
 * Re-design of how the Chrome binary is set
 * env var functions to help with ^^

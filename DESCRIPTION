@@ -1,7 +1,7 @@
 Package: decapitated
 Type: Package
 Title: Headless 'Chrome' Orchestration
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640")),
@@ -16,6 +16,7 @@ URL: https://github.com/hrbrmstr/decapitated
 BugReports: https://github.com/hrbrmstr/decapitated/issues
 License: MIT + file LICENSE
 SystemRequirements: Chrome 59+ on macOS/Linux, 60+ on Windows
+Encoding: UTF-8
 Suggests:
     testthat,
     covr
@@ -27,4 +28,4 @@ Imports:
     processx,
     tools,
     utils
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000

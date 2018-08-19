@@ -11,23 +11,24 @@ perform headless ‘Chrome’ instrumentation on the command-line, including
 retrieving the javascript-executed web page, PDF output or screen shot
 of a URL.
 
-### IMPORTANT
+## IMPORTANT
 
-You’ll need to set an envrionment variable `HEADLESS_CHROME` to one of
-these two values:
+You'll need to set an envrionment variable `HEADLESS_CHROME` to use this package.
 
-  - Windows(32bit): `C:/Program
-    Files/Google/Chrome/Application/chrome.exe`
-  - Windows(64bit): `C:/Program Files
-    (x86)/Google/Chrome/Application/chrome.exe`
-  - macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\
-    Chrome`
-  - Linux: `/usr/bin/google-chrome`
+If this value is not set, a location heuristic is used on package start which looks
+for the following depending on the operating system:
 
-A guess is made (but not verified yet) if `HEADLESS_CHROME` is
-non-existent.
+- Windows(32bit): `C:/Program Files/Google/Chrome/Application/chrome.exe`
+- Windows(64bit): `C:/Program Files (x86)/Google/Chrome/Application/chrome.exe`
+- macOS: `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`
+- Linux: `/usr/bin/google-chrome`
 
-It’s best to use `~/.Renviron` to store this value.
+If a verification test fails, you will be notified. 
+
+**It is HIGHLY recommended** that you use `decapitated::download_chromium()` to use
+a standalone version of Chrome with this packge for your platform. 
+
+It's best to use `~/.Renviron` to store this value.
 
 ## Working around headless Chrome & OS security restrictions:
 
@@ -62,6 +63,7 @@ control over the command-line execution of headless Chrome.
 
 The following functions are implemented:
 
+  - `downlaod_chromium`:  Download a standalone version of Chromium (recommended)
   - `chrome_dump_pdf`: “Print” to PDF
   - `chrome_read_html`: Read a URL via headless Chrome and return the
     raw or rendered ’
@@ -87,7 +89,7 @@ library(decapitated)
 packageVersion("decapitated")
 ```
 
-    ## [1] '0.2.0'
+    ## [1] '0.3.0'
 
 ``` r
 chrome_version()
