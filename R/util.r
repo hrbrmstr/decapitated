@@ -1,3 +1,8 @@
+
+stop_for_problem <- function(res) {
+  if (is.null(res$result)) stop(res$error$message, call.=FALSE) else res$result
+}
+
 .get_app_dir <- function() {
   ddir <- file.path(Sys.getenv("HOME"), ".rdecapdata")
   if (!dir.exists(ddir)) {

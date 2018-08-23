@@ -44,5 +44,7 @@
 #' @name decapitated
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
-#' @import xml2 magick processx tools utils
+#' @import xml2 magick processx tools utils httr
+#' @importFrom jsonlite fromJSON
+#' @importFrom HARtools readHAR
 NULL

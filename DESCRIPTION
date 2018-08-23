@@ -23,9 +23,13 @@ Suggests:
 Depends:
     R (>= 3.2.0)
 Imports:
+    httr,
+    jsonlite,
+    HARtools,
     xml2,
     magick,
     processx,
     tools,
-    utils
+    utils,
+    magrittr
 RoxygenNote: 6.0.1.9000

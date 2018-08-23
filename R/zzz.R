@@ -1,3 +1,5 @@
+s_GET <- safely(httr::GET)
+
 .onAttach <- function(libname, pkgname) {
 
   HEADLESS_CHROME <- Sys.getenv("HEADLESS_CHROME")

@@ -62,6 +62,8 @@ Chrome.
 
 The following functions are implemented:
 
+### CLI-based ops
+
 - `downlaod_chromium`:  Download a standalone version of Chromium (recommended)
 - `chrome_dump_pdf`:	"Print" to PDF
 - `chrome_read_html`:	Read a URL via headless Chrome and return the raw or rendered '<body>' 'innerHTML' DOM elements
@@ -69,6 +71,18 @@ The following functions are implemented:
 - `chrome_version`:	Get Chrome version
 - `get_chrome_env`:	get an envrionment variable 'HEADLESS_CHROME'
 - `set_chrome_env`:	set an envrionment variable 'HEADLESS_CHROME'
+
+### `gepetto`-based ops
+
+- `gepetto`:	Create a connection to a Gepetto API server
+- `gep_active`:	Get test whether the gepetto server is active
+- `gep_debug`:	Get "debug-level" information of a running gepetto server
+- `gep_render_har`:	Render a page in a javascript context and serialize to HAR
+- `gep_render_html`:	Render a page in a javascript context and serialize to HTML
+- `gep_render_magick`:	Render a page in a javascript context and take a screenshot
+- `gep_render_pdf`:	Render a page in a javascript context and rendero to PDF
+
+More information on `gepetto` is forthcoming but you can take a sneak peek [here](https://gitlab.com/hrbrmstr/gepetto).
 
 ## Installation
 
