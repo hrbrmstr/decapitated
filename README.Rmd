@@ -74,6 +74,14 @@ The following functions are implemented:
 
 ### `gepetto`-based ops
 
+Helpers to get gepetto installed:
+
+- `install_gepetto`:	Install gepetto
+- `start_gepetto`:	Start/stop gepetto
+- `stop_gepetto`:	Start/stop gepetto
+
+API interface functions:
+
 - `gepetto`:	Create a connection to a Gepetto API server
 - `gep_active`:	Get test whether the gepetto server is active
 - `gep_debug`:	Get "debug-level" information of a running gepetto server

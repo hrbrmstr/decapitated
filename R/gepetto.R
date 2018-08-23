@@ -245,6 +245,31 @@ gep_active <- function(gep) {
 
 }
 
+#' Gracefully stop a gepetto instance
+#'
+#' @md
+#' @param gep a gepetto connection object
+#' @export
+#' @examples \dontrun{
+#' gepetto() %>%
+#'   gep_stop()
+#' }
+gep_stop <- function(gep) {
+
+  s_GET(
+    url = sprintf("http://%s:%s/_stop", gep$host, gep$port)
+  ) -> res
+
+  res <- stop_for_problem(res)
+
+  httr::stop_for_status(res)
+
+  out <- httr::content(res, as="text")
+  out <- jsonlite::fromJSON(out)
+
+  out$status == "ok"
+
+}
 
 #' #' Execute Puppeteer commands
 #' #'
