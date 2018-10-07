@@ -4,7 +4,7 @@
 \alias{download_chromium}
 \title{Download a standalone version of Chromium (recommended)}
 \usage{
-download_chromium(path = NULL, chromium_revision = 579032)
+download_chromium(path, chromium_revision = 579032)
 }
 \arguments{
 \item{path}{where to store the Chromium app.}

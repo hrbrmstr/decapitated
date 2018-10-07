@@ -5,7 +5,7 @@
 #' @param chromium_revision version to download (keep default unless you require
 #'        a specific version)
 #' @export
-download_chromium <- function(path = NULL, chromium_revision = 579032) {
+download_chromium <- function(path, chromium_revision = 579032) {
 
   path <- path.expand(path)
   stopifnot(dir.exists(path))
